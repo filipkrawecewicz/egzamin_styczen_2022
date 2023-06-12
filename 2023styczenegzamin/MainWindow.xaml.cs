@@ -17,13 +17,12 @@ namespace _2023styczenegzamin
 {
     public partial class MainWindow : Window
     {
-        public string smallLetters = "qwertyuiopasdfghjklzxcvbnm";
-        public string bigLetters = "QWERTYUIOPASDFGHJKLZXCVBNM";
-        public string numbers = "1234567890";
-        public string special = "!@#$%^&*()_+-=";
-        bool bigUsed = false;
-        bool numUsed = false;
-        bool specialUsed = false;
+        public char[] smallLetters = "qwertyuiopasdfghjklzxcvbnm".ToCharArray();
+
+        public char[] bigLetters = "QWERTYUIOPASDFGHJKLZXCVBNM".ToCharArray();
+        public char[] numbers = "1234567890".ToCharArray();
+        public char[] special = "!@#$%^&*()_+-=".ToCharArray();
+        string password = "";
         public MainWindow()
         {
             InitializeComponent();
@@ -31,31 +30,35 @@ namespace _2023styczenegzamin
 
         private void hasloBtn_Click(object sender, RoutedEventArgs e)
         {
-            string password = "";
             Random random = new Random();
-            for (int i = 0; i < int.Parse(znakiText.Text); i++)
+
+            int ileZnakow = int.Parse(znakiText.Text);
+            for (int i = 0; i < ileZnakow; i++)
             {
-                if ((bool)literyCheck.IsChecked && !bigUsed)
+                if((i==0) && (cyfryCheck.IsChecked == true))
                 {
-                    password += bigLetters.ElementAt(random.Next(bigLetters.Length));
-                    bigUsed = true;
-                    continue;
+                    password += numbers[random.Next(numbers.Length)];
                 }
-                if ((bool)cyfryCheck.IsChecked && !numUsed)
+                if ((i == 1) && (znakiCheck.IsChecked == true))
                 {
-                    password += random.Next(9).ToString();
-                    numUsed = true;
-                    continue;
+                    password += special[random.Next(special.Length)];
                 }
-                if ((bool)znakiCheck.IsChecked && !specialUsed)
+                if ((i == 2) && (literyCheck.IsChecked == true))
                 {
-                    password += special.ElementAt(random.Next(special.Length));
-                    specialUsed = true;
-                    continue;
+                    password += bigLetters[random.Next(bigLetters.Length)];
                 }
-                password.Append(smallLetters.ElementAt(random.Next(smallLetters.Length)));
+                else
+                {
+                    password += smallLetters[random.Next(smallLetters.Length)];
+                }
             }
-            MessageBox.Show(password, "", MessageBoxButton.OK);
+
+            MessageBox.Show(password);
+        }
+
+        private void zatwierdzBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Dane pracownika: " + imieText.Text + " " + nazwiskoText.Text + " " + stanowiskoCombo.Text + " Hasło: " + password);
         }
     }
 }

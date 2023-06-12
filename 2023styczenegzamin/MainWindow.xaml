@@ -41,7 +41,7 @@
             </Grid>
         </GroupBox>
 
-        <Button x:Name="zatwierdzBtn" Content="Zatwierdź" HorizontalAlignment="Center" Margin="0,375,0,0" VerticalAlignment="Top" Background="SteelBlue" Foreground="White"/>
+        <Button x:Name="zatwierdzBtn" Content="Zatwierdź" HorizontalAlignment="Center" Margin="0,375,0,0" VerticalAlignment="Top" Background="SteelBlue" Foreground="White" Click="zatwierdzBtn_Click"/>
 
     </Grid>
 </Window>
