@@ -1,0 +1,47 @@
+﻿<Window x:Class="_2023styczenegzamin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_2023styczenegzamin"
+        mc:Ignorable="d"
+        Title="Dodaj pracownika" Height="450" Width="800">
+    <Grid Background="LightSteelBlue">
+
+        <GroupBox Header="Dane pracownika" Grid.ColumnSpan="2" Margin="58,85,461,109">
+            <Grid>
+                <Label Content="Imię" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.047,0.073"/>
+                <TextBox x:Name="imieText" HorizontalAlignment="Left" Margin="116,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="133"/>
+
+                <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.047,0.073"/>
+                <TextBox x:Name="nazwiskoText" HorizontalAlignment="Left" Margin="116,64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="133"/>
+
+                <Label Content="Stanowisko" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.047,0.073"/>
+                <ComboBox x:Name="stanowiskoCombo" HorizontalAlignment="Left" Margin="116,114,0,0" VerticalAlignment="Top" Width="120">
+                    <ComboBoxItem>Kierownik</ComboBoxItem>
+                    <ComboBoxItem>Starszy programista</ComboBoxItem>
+                    <ComboBoxItem>Młodszy programista</ComboBoxItem>
+                    <ComboBoxItem>Tester</ComboBoxItem>
+                </ComboBox>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Header="Generowanie hasła" Margin="425,85,98,109">
+            <Grid Margin="0,0,-2,0">
+                <Label Content="Ile znaków?" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="znakiText" HorizontalAlignment="Left" Margin="116,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.525,0.937"/>
+
+                <CheckBox x:Name="literyCheck" Content="Małe i wielkie litery" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top"/>
+
+                <CheckBox x:Name="cyfryCheck" Content="Cyfry" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top"/>
+
+                <CheckBox x:Name="znakiCheck" Content="Znaki specjalne" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top"/>
+
+                <Button x:Name="hasloBtn" Content="Generuj hasło" HorizontalAlignment="Center" Margin="0,167,0,0" VerticalAlignment="Top" Background="SteelBlue" Foreground="White" Click="hasloBtn_Click"/>
+            </Grid>
+        </GroupBox>
+
+        <Button x:Name="zatwierdzBtn" Content="Zatwierdź" HorizontalAlignment="Center" Margin="0,375,0,0" VerticalAlignment="Top" Background="SteelBlue" Foreground="White"/>
+
+    </Grid>
+</Window>
